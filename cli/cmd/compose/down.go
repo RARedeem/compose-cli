@@ -50,12 +50,13 @@ func runDown(ctx context.Context, opts composeOptions) error {
 	}
 
 	_, err = progress.Run(ctx, func(ctx context.Context) (string, error) {
-		projectName, err := opts.toProjectName()
+		projectName, project, err := opts.toProjectName()
 		if err != nil {
 			return "", err
 		}
 		return projectName, c.ComposeService().Down(ctx, projectName, compose.DownOptions{
 			RemoveOrphans: false,
+			Project:       project,
 		})
 	})
 	return err

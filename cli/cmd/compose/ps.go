@@ -51,7 +51,7 @@ func runPs(ctx context.Context, opts composeOptions) error {
 		return err
 	}
 
-	projectName, err := opts.toProjectName()
+	projectName, _, err := opts.toProjectName()
 	if err != nil {
 		return err
 	}
