@@ -19,7 +19,7 @@ require (
 	github.com/cnabio/cnab-to-oci v0.3.1-beta1
 	github.com/compose-spec/compose-go v0.0.0-20210113150448-e0b1ffe70cc5
 	github.com/containerd/console v1.0.1
-	github.com/containerd/containerd v1.4.3
+	github.com/containerd/containerd v1.4.11
 	github.com/containerd/continuity v0.0.0-20200928162600-f2cc35102c2a // indirect
 	github.com/docker/buildx v0.5.1
 	github.com/docker/cli v20.10.1+incompatible
