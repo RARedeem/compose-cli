@@ -45,21 +45,21 @@ func addComposeCommonFlags(f *pflag.FlagSet, opts *composeOptions) {
 	f.BoolVarP(&opts.Quiet, "quiet", "q", false, "Only display IDs")
 }
 
-func (o *composeOptions) toProjectName() (string, error) {
+func (o *composeOptions) toProjectName() (string, *types.Project, error) {
 	if o.ProjectName != "" {
-		return o.ProjectName, nil
+		return o.ProjectName, nil, nil
 	}
 
 	options, err := o.toProjectOptions()
 	if err != nil {
-		return "", err
+		return "", nil, err
 	}
 
 	project, err := cli.ProjectFromOptions(options)
 	if err != nil {
-		return "", err
+		return "", nil, err
 	}
-	return project.Name, nil
+	return project.Name, project, nil
 }
 
 func (o *composeOptions) toProjectOptions() (*cli.ProjectOptions, error) {

@@ -49,7 +49,7 @@ func runLogs(ctx context.Context, opts composeOptions, services []string) error 
 		return err
 	}
 
-	projectName, err := opts.toProjectName()
+	projectName, _, err := opts.toProjectName()
 	if err != nil {
 		return err
 	}
